@@ -1,0 +1,488 @@
+<PCInputScreen@MDScreen>:
+
+    name: 'pc_input'
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(10)
+        spacing: dp(10)
+
+        # Thanh tiêu đề
+        MDTopAppBar:
+            title: "Xây dựng cấu hình PC của bạn "
+            elevation: 2
+            md_bg_color: app.theme_cls.primary_color
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            bar_width: dp(10)
+            bar_color: '#a8a08a'
+            bar_inactive_color: '#d0c8b9'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: dp(20)
+                spacing: dp(15)
+                size_hint_y: None
+                height: self.minimum_height
+                
+                # Nhóm CPU
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(15)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    elevation: 2
+                    radius: [dp(12), dp(12), dp(12), dp(12)]
+                    FitImage:
+                        source: app.cpu_img_path
+                        allow_stretch: False
+                        
+                        keep_ratio: True
+                        size_hint_y: None
+                        height: dp(300)
+                        padding: dp(10)
+                        pos_hint: {"center_x": 0.5}
+                        
+
+                    MDLabel:
+                        text: "Thông tin CPU"
+                        theme_text_color: "Primary"
+                        font_style: "H6"
+
+                    MDTextField:
+                        id: cpu_model
+                        hint_text: "CPU Model"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "cpu-64-bit"
+                        radius: [dp(8), dp(8), dp(8), dp(8)]
+                        on_text: app.on_component_model_text('cpu', self)
+
+                    MDTextField:
+                        id : cpu_cores
+                        hint_text: "Số lõi"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "numeric"
+
+                    MDTextField:
+                        id : cpu_socket
+                        hint_text: "Socket"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "chip"
+
+                    MDTextField:
+                        id : cpu_tdp
+                        hint_text: "TDP (W)"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "power"
+                    
+                    MDTextField:
+                        id : cpu_coreclock
+                        hint_text: "Core clock GHz"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "speedometer"
+                    
+                    MDTextField:
+                        id : cpu_boost
+                        hint_text: "Boost clock GHz"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "speedometer"
+                    
+
+                # Nhóm RAM
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(15)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    elevation: 2
+
+                    FitImage:
+                        source: app.ram_img_path
+                        allow_stretch: False
+                        keep_ratio: True
+                        size_hint_y: None
+                        height: dp(300)
+                        padding: dp(10)
+                        pos_hint: {"center_x": 0.5}
+
+                    MDLabel:
+                        text: "Thông tin RAM"
+                        theme_text_color: "Primary"
+                        font_style: "H6"
+
+                    MDTextField:
+                        id: ram_model
+                        hint_text: "RAM Model"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "memory"
+                        on_text: app.on_component_model_text('ram', self)
+
+                    MDTextField:
+                        id: ram_capa
+                        hint_text: "Dung lượng RAM (GB)"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "numeric"
+                    
+                    MDTextField:
+                        id: ram_type
+                        hint_text: "Dòng RAM"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "memory"
+                        
+
+                    MDTextField:
+                        id: speed_ram
+                        hint_text: "Tốc độ RAM (MHz)"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "speedometer"
+                    
+                    MDTextField:
+                        id: ram_color
+                        hint_text: "Color"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "palette"
+                        
+
+                # Nhóm GPU
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(15)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    elevation: 2
+
+                    FitImage:
+                        source: app.gpu_img_path
+                        allow_stretch: False
+                        keep_ratio: True
+                        size_hint_y: None
+                        height: dp(300)
+                        padding: dp(10)
+                        pos_hint: {"center_x": 0.5}
+                    
+
+                    MDLabel:
+                        text: "Thông tin GPU"
+                        theme_text_color: "Primary"
+                        font_style: "H6"
+
+                    MDTextField:
+                        id: gpu_model
+                        hint_text: "GPU Model"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "memory"
+                        on_text: app.on_component_model_text('gpu', self)
+                        
+
+                    MDTextField:
+                        id: gpu_vram
+                        hint_text: "VRAM (GB)"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "memory"
+                    
+                    MDTextField:
+                        id: gpu_coreclock
+                        hint_text: "Boost Clock"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "speedometer"
+
+                    MDTextField:
+                        id: gpu_boostclock
+                        hint_text: "Boost Clock"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "speedometer"
+                    
+                    MDTextField:
+                        id: gpu_chipset
+                        hint_text: "Chip set"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "chip"
+                    
+                    MDTextField:
+                        id: gpu_tdp
+                        hint_text: "TDP (W)"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "power"
+                    
+                    MDTextField:
+                        id: gpu_color
+                        hint_text: "Color"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "palette"
+                    
+                    MDTextField:
+                        id: gpu_length
+                        hint_text: "Length (mm)"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "chart-line-variant"
+                        
+
+                # Nhóm MainBoard
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(15)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    elevation: 2
+
+                    FitImage:
+                        source: app.mainb_img_path
+                        allow_stretch: False
+                        keep_ratio: True
+                        size_hint_y: None
+                        height: dp(500)
+                        padding: dp(10)
+                        pos_hint: {"center_x": 0.5}
+                    
+
+                    MDLabel:
+                        text: "Thông tin MainBoard"
+                        theme_text_color: "Primary"
+                        font_style: "H6"
+                    
+                    MDTextField:
+                        id: mainboard_model
+                        hint_text: "MainBoard Model"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "memory"
+                        on_text: app.on_component_model_text('mainboard', self)
+                    
+                    MDTextField:
+                        id: mainboard_socket
+                        hint_text: "Socket"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "power-socket-eu"
+                    
+                    MDTextField:
+                        id: mainboard_form
+                        hint_text: "Form-factor"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "form-select"
+                    
+                    MDTextField:
+                        id: mainboard_chipset
+                        hint_text: "Chip set"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "chip"
+                    
+                    MDTextField:
+                        id: mainboard_ramtype
+                        hint_text: "Ram type"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "memory"
+                    
+                    MDTextField:
+                        id: pcie
+                        hint_text: "Khe PCIe"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "expansion-card"
+                    
+                    MDTextField:
+                        id: mainboard_max
+                        hint_text: "Max memory"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "memory"
+                    
+                    MDTextField:
+                        id: slots
+                        hint_text: "Memory slots"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "numeric"
+                    
+                    MDTextField:
+                        id: mainboard_color
+                        hint_text: "Color"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "palette"
+                    
+        
+                    
+                # Nhóm PSU
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(15)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    elevation: 2
+
+                    FitImage:
+                        source: app.psu_img_path
+                        allow_stretch: False
+                        keep_ratio: True
+                        size_hint_y: None
+                        height: dp(400)
+                        padding: dp(10)
+                        pos_hint: {"center_x": 0.5}
+                    
+
+                    MDLabel:
+                        text: "Thông tin PSU"
+                        theme_text_color: "Primary"
+                        font_style: "H6"
+                    
+                    MDTextField:
+                        id: psu_model
+                        hint_text: "PSU Model"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "power-plug"
+                        on_text: app.on_component_model_text('psu', self)
+                    
+                    MDTextField:
+                        id: psu_wattage
+                        hint_text: "PSU Wattage"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "power"
+                    
+                # Nhóm khác
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(15)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    elevation: 2
+                    
+
+                    MDLabel:
+                        text: "Thông tin khác"
+                        theme_text_color: "Primary"
+                        font_style: "H6"                  
+                        
+
+                    MDTextField:
+                        id: os
+                        hint_text: "OS"
+                        mode: "fill"
+                        fill_color: 0, 0, 0, 0.05
+                        line_color_focus: app.theme_cls.primary_color
+                        icon_left: "microsoft-windows"
+                        on_text: app.on_component_model_text('os', self)
+
+                MDRaisedButton:
+                    
+                    text: "Kiểm tra tương thích"
+                    md_bg_color: app.theme_cls.accent_color
+                    text_color: 1, 1, 1, 1
+                    elevation: 2
+                    on_release: app.check_pc_compatibility()
+
+                # Ket qua kiem tra tuong thich PC
+                MDCard:
+                    id: compatibility_result
+                    orientation: 'vertical'
+                    padding: dp(15)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    elevation: 2
+                    radius: [dp(12), dp(12), dp(12), dp(12)]
+                    md_bg_color: 0.95, 0.95, 0.95, 1
+
+                    MDLabel:
+                        id: compatibility_text
+                        text: "Kết quả kiểm tra tương thích sẽ hiển thị tại đây"
+                        theme_text_color: "Primary"
+                        font_style: "Body1"
+                        halign: "center"
+                        size_hint_y: None
+                        height: dp(50)
+                        
+
+                # Nút điều khiển
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(60)
+                    padding: dp(10)
+                    pos_hint: {"center_x": 0.5}
+
+                    MDRaisedButton:
+                        text: "Lưu cấu hình"
+                        md_bg_color: app.theme_cls.primary_color
+                        text_color: 1, 1, 1, 1
+                        elevation: 2
+                        on_release: app.on_submit_pc_input()
+                    
+                    
+
+                    MDRaisedButton:
+                        text: "Nhập Game"
+                        md_bg_color: app.theme_cls.primary_color
+                        text_color: 1, 1, 1, 1
+                        
+                        elevation: 2
+                        on_release: app.set_screen("select_game")
+
+                    MDRaisedButton:
+                        text: "Xoá toàn bộ"
+                        md_bg_color: app.theme_cls.error_color
+                        text_color: 1, 1, 1, 1
+                        
+                        elevation: 2
+                        on_release: app.clear_pc_input()

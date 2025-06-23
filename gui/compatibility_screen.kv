@@ -1,0 +1,230 @@
+<CompatibilityScreen@MDScreen>:
+    name: 'compatibility'
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(15)
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            Image:
+                id: game_image
+                source: app.i1
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+            Image:
+                id: game_image
+                source: app.i2
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+            Image:
+                id: game_image
+                source: app.i3
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+            Image:
+                id: game_image
+                source:app.i4
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+            Image:
+                id: game_image
+                source: app.i5
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+        MDLabel:
+            id: game_title
+            text: app.selected_game.Name if app.selected_game else "Chưa chọn game"
+            halign: 'center'
+            theme_text_color: 'Primary'
+            font_style: 'H4'
+            font_name: 'Roboto'
+            size_hint_y: None
+            height: dp(50)
+
+        MDCard:
+            size_hint: 0.9, None
+            height: dp(350)
+            pos_hint: {'center_x': 0.5}
+            elevation: 3
+            radius: [dp(15)]
+            padding: dp(10)
+
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                size_hint: 1, 1
+
+                MDGridLayout:
+                    cols: 3
+                    padding: dp(10)
+                    spacing: dp(5)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    row_default_height: dp(40)
+
+                    # Header
+                    MDLabel:
+                        text: "Thành phần"
+                        theme_text_color: 'Primary'
+                        font_style: 'Subtitle1'
+                        halign: 'center'
+                        bold: True
+                    MDLabel:
+                        text: "Cấu hình PC"
+                        theme_text_color: 'Primary'
+                        font_style: 'Subtitle1'
+                        halign: 'center'
+                        bold: True
+                    MDLabel:
+                        text: "Yêu cầu Game"
+                        theme_text_color: 'Primary'
+                        font_style: 'Subtitle1'
+                        halign: 'center'
+                        bold: True
+
+                    # Hệ điều hành
+                    MDLabel:
+                        text: "Hệ điều hành"
+                        theme_text_color: 'Secondary'
+                        halign: 'left'
+                    MDLabel:
+                        id: os
+                        text: app.pc_config.get('OS', 'Chưa nhập') if app.pc_config else 'Chưa nhập'
+                        halign: 'left'
+                    MDLabel:    
+                        id: game_os
+                        text: app.selected_game.Minimum.OS if app.selected_game and app.selected_game.Minimum else 'N/A'
+                        halign: 'left'
+
+                    # CPU
+                    MDLabel:
+                        text: "CPU"
+                        theme_text_color: 'Secondary'
+                        halign: 'left'
+                    MDLabel:
+                        id: cpu_name
+                        text: f"{app.pc_config.get('CPU', 'Chưa nhập')} ({app.pc_config.get('CPU_BoostClock', app.pc_config.get('CPU_CoreClock', 'N/A'))} GHz)" if app.pc_config else 'Chưa nhập'
+                        halign: 'left'
+                    MDLabel:
+                        id: game_cpu
+                        text: app.selected_game.Minimum.CPU if app.selected_game and app.selected_game.Minimum else 'N/A'
+                        halign: 'left'
+
+                    # RAM
+                    MDLabel:
+                        text: "RAM"
+                        theme_text_color: 'Secondary'
+                        halign: 'left'
+                    MDLabel:
+                        id: pc_ram
+                        text: app.pc_config.get('RAM', 'Chưa nhập') if app.pc_config else 'Chưa nhập'
+                        halign: 'left'
+                    MDLabel:
+                        id: game_ram
+                        text: app.selected_game.Minimum.RAM if app.selected_game and app.selected_game.Minimum else 'N/A'
+                        halign: 'left'
+
+                    # GPU
+                    MDLabel:
+                        text: "GPU"
+                        theme_text_color: 'Secondary'
+                        halign: 'left'
+                    MDLabel:
+                        id: pc_gpu
+                        text: f"{app.pc_config.get('GPU', 'Chưa nhập')} (VRAM: {app.pc_config.get('GPU_VRAM', 'N/A')})" if app.pc_config else 'Chưa nhập'
+                        halign: 'left'
+                    MDLabel:
+                        id: game_gpu
+                        text: app.selected_game.Minimum.GPU if app.selected_game and app.selected_game.Minimum else 'N/A'
+                        halign: 'left'
+
+                    # DirectX
+                    MDLabel:
+                        text: "DirectX"
+                        theme_text_color: 'Secondary'
+                        halign: 'left'
+                    MDLabel:
+                        text: ''
+                        halign: 'left'
+                    MDLabel:
+                        id: game_directx
+                        text: app.selected_game.Minimum.DirectX if app.selected_game and app.selected_game.Minimum else 'N/A'
+                        halign: 'left'
+
+                    # Storage
+                    MDLabel:
+                        text: "Free disk space"
+                        theme_text_color: 'Secondary'
+                        halign: 'left'
+                    MDLabel:
+                        text: ''
+                        halign: 'left'
+                    MDLabel:
+                        id: free
+                        text: app.selected_game.Minimum.Storage if app.selected_game and app.selected_game.Minimum else 'N/A'
+                        halign: 'left'
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            size_hint: 0.9, None
+            height: dp(50)
+            pos_hint: {'center_x': 0.5}
+
+            MDRaisedButton:
+                text: 'Quay Lại'
+                size_hint: 1, None
+                height: dp(50)
+                md_bg_color: 0.12, 0.58, 0.95, 1
+                text_color: 1, 1, 1, 1
+                font_size: '16sp'
+                font_name: 'Roboto'
+                elevation: 6
+                icon: 'arrow-left'
+                on_release: app.root.ids.screen_manager.current = 'select_game'
+            
+            MDRaisedButton:
+                text: 'Xem lại cấu hình PC'
+                size_hint: 1, None
+                height: dp(50)
+                md_bg_color: 0.12, 0.58, 0.95, 1
+                text_color: 1, 1, 1, 1
+                font_size: '16sp'
+                font_name: 'Roboto'
+                elevation: 6
+                icon: 'arrow-left'
+                on_release: app.root.ids.screen_manager.current = 'pc_input'
+            

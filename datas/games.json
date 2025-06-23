@@ -1,0 +1,148 @@
+[
+  {
+    "path": "./assets/view/apekle.PNG",
+    "name": "Apex Legends",
+    "minimum": {
+      "os": "Windows 7-10 64-bit",
+      "cpu": ["Intel Core i3-6300", "AMD FX-4350"],
+      "ram": "6",
+      "gpu": ["NVIDIA GTX 950", "AMD Radeon HD 7790"],
+      "directx": "11/12",
+      "storage": "75 GB"
+    },
+    "recommended": {
+      "os": "Windows 10 64-bit",
+      "cpu": ["Intel i5-3570K"],
+      "ram": "8",
+      "gpu": ["NVIDIA GTX 970", "AMD Radeon R9 290"],
+      "storage": "75 GB"
+    }
+  },
+  {
+    "path": "./assets/view/ark.PNG",
+    "name": "ARK: Survival Evolved",
+    "minimum": {
+      "os": "Windows 7-10 64-bit",
+      "cpu": ["Intel Core i5-2400", "AMD FX-8320"],
+      "ram": "8",
+      "gpu": ["NVIDIA GTX 670", "AMD Radeon HD 7870"],
+      "storage": "60 GB"
+    },
+    "recommended": {
+      "os": "Windows 10-11 64-bit",
+      "cpu": ["Intel i5-10600K", "AMD Ryzen 5 3600X"],
+      "ram": "16",
+      "gpu": ["NVIDIA GTX 1080", "AMD Radeon RX 5600 XT"],
+      "storage": "70 GB"
+    }
+  },
+  {
+    "path": "./assets/view/blackwithwukong.PNG",
+    "name": "Black Myth: Wukong",
+    "minimum": {
+      "os": "Windows 10 64-bit",
+      "cpu": ["Intel i5-8400", "AMD Ryzen 5 1600"],
+      "ram": "16",
+      "gpu": ["NVIDIA GTX 1060 6GB", "AMD RX 580 8GB"],
+      "storage": "130 GB"
+    },
+    "recommended": {
+      "os": "Windows 10 64-bit",
+      "cpu": ["Intel i7-9700", "AMD Ryzen 5 5500"],
+      "ram": "16",
+      "gpu": ["NVIDIA RTX 2060"],
+      "storage": "130 GB"
+    }
+  },
+  {
+    "path": "./assets/view/gta5.PNG",
+    "name": "GTA V",
+    "minimum": {
+      "os": "Windows 10 64-bit",
+      "cpu": ["Intel Core 2 Quad Q6600", "AMD Phenom 9850"],
+      "ram": "4",
+      "gpu": ["NVIDIA 9800 GT", "AMD HD 4870"],
+      "storage": "120 GB"
+    },
+    "recommended": {
+      "os": "Windows 11",
+      "cpu": ["Intel i5-9600K", "AMD Ryzen 5 3600"],
+      "ram": "16",
+      "gpu": ["NVIDIA RTX 3060", "AMD RX 6600 XT"],
+      "storage": "105 GB"
+    }
+  },
+  {
+    "path": "./assets/view/counter_strike_2.PNG",
+    "name": "Counter‑Strike 2",
+    "minimum": {
+      "os": "Windows 10 64-bit",
+      "cpu": ["Intel Core i5-750", "AMD FX-6300"],
+      "ram": "8",
+      "gpu": ["DirectX 11-compatible GPU with 1GB VRAM"],
+      "storage": "85 GB"
+    },
+    "recommended": {
+      "os": "Windows 10",
+      "cpu": ["4-core CPU"],
+      "ram": "8",
+      "gpu": ["NVIDIA GTX 970", "AMD RX 570"],
+      "storage": "85 GB"
+    }
+  },
+  {
+    "path": "./assets/view/dota_2.PNG",
+    "name": "Dota 2",
+    "minimum": {
+      "os": "Windows 7+",
+      "cpu": ["Dual-core 2.8 GHz"],
+      "ram": "4",
+      "gpu": ["NVIDIA 8600", "NVIDIA 9600GT", "AMD HD2600", "AMD HD3600"],
+      "directx": "11",
+      "storage": "60 GB"
+    },
+    "recommended": {
+      "os": "Windows 7+",
+      "cpu": ["Quad-core 2.8 GHz+"],
+      "ram": "8",
+      "gpu": ["NVIDIA GTX 970", "AMD RX 470"],
+      "storage": "60 GB"
+    }
+  },
+  {
+    "path": "./assets/view/eldenring.PNG",
+    "name": "Elden Ring",
+    "minimum": {
+      "os": "Windows 10",
+      "cpu": ["Intel i5-8400", "AMD Ryzen 3 3300X"],
+      "ram": "12",
+      "gpu": ["NVIDIA GTX 1060 3GB", "AMD RX 580 4GB"],
+      "storage": "60 GB"
+    },
+    "recommended": {
+      "os": "Windows 10",
+      "cpu": ["Intel i5", "AMD Ryzen 5"],
+      "ram": "16",
+      "gpu": ["NVIDIA GTX 1070"],
+      "storage": "60 GB"
+    }
+  },
+  {
+    "path": "./assets/view/pubg.PNG",
+    "name": "PUBG: Battlegrounds",
+    "minimum": {
+      "os": "Windows 7-10 64-bit",
+      "cpu": ["Intel i5-4430", "AMD FX-6300"],
+      "ram": "8",
+      "gpu": ["NVIDIA GTX 960 2GB", "AMD R7 370 2GB"],
+      "storage": "40 GB"
+    },
+    "recommended": {
+      "os": "Windows 7-10 64-bit",
+      "cpu": ["Intel i5-6600K", "AMD Ryzen 5 1600"],
+      "ram": "16",
+      "gpu": ["NVIDIA GTX 1060 3GB", "AMD RX 580 4GB"],
+      "storage": "50 GB"
+    }
+  }
+]

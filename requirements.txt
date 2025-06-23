@@ -1,0 +1,5 @@
+python_version >= "3.12"
+kivy == 2.3.1
+kivymd ==1.2.0
+requests == 2.32.3
+bs4 == 4.12.3

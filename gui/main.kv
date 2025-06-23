@@ -1,0 +1,112 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    ripple_color: "#c5bdd2"
+    selected_color: "#0c6c4d"
+
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    focus_behavior: False
+    selected_color: "#4a4939"
+    _no_ripple_effect: True
+
+MDScreen:
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            elevation: 4
+            pos_hint: {"top": 1}
+            
+            title: "BuildCheck – Trợ lý kiểm tra tương thích cấu hình PC vs Game"
+            md_bg_color: "#272b2e"
+            specific_text_color: "#fefefe"
+            left_action_items: [['menu', lambda x: nav_drawer.set_state('toggle')]]
+            right_action_items: [["account-circle-outline", lambda x: app.on_profile()],["cog-outline", lambda x: app.on_settings()]]
+                        
+
+        MDNavigationLayout:
+
+            ScreenManager:
+                id: screen_manager
+
+                HomeScreen:
+                    name: 'home'
+
+                PCInputScreen:
+                    name: 'pc_input'
+
+                SelectGameScreen:
+                    name: 'select_game'
+
+                CompatibilityScreen:
+                    name: 'compatibility'
+                DetailsScreen:
+                    name: 'details'
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                radius: (0, 16, 16, 0)
+                
+
+                ScrollView:
+
+                    MDNavigationDrawerMenu:
+
+                        MDNavigationDrawerHeader:
+                            title: "BuildCheck"
+                            title_color: "#4a4939"
+                            text: "Menu"
+                            spacing: "4dp"
+                            padding: "12dp", 0, 0, "56dp"
+                            source: app.logo_img_path
+                        
+
+                        DrawerClickableItem:
+                            icon: "home"
+                            text: "HOME"
+                            on_release:
+                                app.set_screen("home")
+                                nav_drawer.set_state("close")
+                            
+
+                        DrawerClickableItem:
+                            icon: "desktop-classic"
+                            text: "Nhập câu hình PC"
+                            on_release:
+                                app.set_screen("pc_input")
+                                nav_drawer.set_state("close")        
+
+                        DrawerClickableItem:
+                            icon: "gamepad-variant"
+                            text: "Chọn game"
+                            on_release:
+                                app.set_screen("select_game")
+                                nav_drawer.set_state("close")
+
+                        DrawerClickableItem:
+                            icon: "check-circle"    
+                            text: "Kiểm tra tương thích"
+                            on_release:
+                                app.set_screen("compatibility")
+                                nav_drawer.set_state("close")
+                        DrawerClickableItem:
+                            icon: "information" 
+                            text: "Xem chi tiết"
+
+                            on_release:
+                                app.set_screen("details")       
+                                nav_drawer.set_state("close")
+
+                        DrawerClickableItem:
+                            icon: "exit-to-app"     
+                            text: "Thoát"
+                            on_release:
+                                app.show_exit_dialog()
+
+
+                            

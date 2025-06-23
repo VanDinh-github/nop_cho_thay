@@ -1,0 +1,37 @@
+<HomeScreen@MDScreen>:
+    name: 'home'
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1  # Màu trắng để đảm bảo hình ảnh hiển thị rõ
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: app.nen_img_path 
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: 80
+        
+
+       
+        
+        Widget:  
+            size_hint_x: 0.2
+
+        MDRaisedButton:
+            text: 'Start your build'
+            pos_hint: {'center_x': 0.3, 'center_y': 0.5}
+            md_bg_color: [1, 0.6, 0, 1]
+            theme_text_color:"Custom"
+            elevation: 4 
+            font_size: '30sp'
+            font_name: 'Roboto'
+            text_color:[1, 1, 1, 1]
+            size_hint:(0.2, 0.1)  
+            icon: 'desktop-classic'
+            
+            
+
+            on_release: app.set_screen("pc_input")
+        Widget:  
+            size_hint_x: 0.5
+        

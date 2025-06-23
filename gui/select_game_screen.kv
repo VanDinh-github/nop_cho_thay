@@ -1,0 +1,156 @@
+<SelectGameScreen@MDScreen>:
+    name: 'select_game'
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(10)
+        spacing: dp(10)
+        
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: dp(10)
+            Image:
+                id: game_image
+                source: app.i1
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+            Image:
+                id: game_image
+                source: app.i2
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+            Image:
+                id: game_image
+                source: app.i3
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+            Image:
+                id: game_image
+                source:app.i4
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+            Image:
+                id: game_image
+                source: app.i5
+                radius: [dp(12)]
+                allow_stretch: True
+                keep_ratio: True
+                size_hint: None, None
+                size: dp(300), dp(200)  # ví dụ kích thước mong muốn
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        MDLabel:
+            text: "Tìm Game để Kiểm Tra Tương Thích"
+            halign: 'center'
+            theme_text_color: 'Primary'
+            font_style: 'H5'
+            font_name: 'Roboto'
+            size_hint_y: None
+            height: dp(40)
+
+        MDTextField:
+            id: game_input
+            hint_text: "Nhập tên game"
+            mode: "rectangle"
+            size_hint: 0.8, None
+            height: dp(48)
+            pos_hint: {'center_x': 0.5}
+            on_text: app.search_games(self.text)
+            icon_left: "gamepad-variant"
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            size_hint: 0.8, None
+            height: dp(100)
+            pos_hint: {'center_x': 0.5}
+
+            RecycleView:
+                id: game_list
+                viewclass: 'OneLineListItem'
+                RecycleBoxLayout:
+                    default_size: None, dp(48)
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'vertical'
+                    spacing: dp(2)
+
+        MDCard:
+            id: game_info
+            size_hint: 0.9, None
+            height: dp(250)
+            pos_hint: {'center_x': 0.5}
+            elevation: 2
+            radius: [dp(15)]
+            padding: dp(10)
+            orientation: 'horizontal'
+
+            Image:
+                id: game_image
+                source: app.icon_img_path
+                size_hint: 0.4, 1
+                allow_stretch: True
+                keep_ratio: True
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: dp(10)
+                spacing: dp(5)
+
+                MDLabel:
+                    id: game_name
+                    text: "Không có thông tin Game"
+                    font_style: "H6"
+                    halign: 'left'
+
+                MDLabel:
+                    id: game_requirements
+                    text: "Không có thông tin cấu hình"
+                    halign: 'left'
+                    theme_text_color: 'Secondary'
+                    size_hint_y: None
+                    height: dp(150)
+        
+       
+
+        MDRaisedButton:
+            text: 'Kiểm Tra Tương Thích'
+            pos_hint: {'center_x': 0.5}
+            size_hint: 0.4, None
+            height: dp(50)
+            md_bg_color: 0.12, 0.58, 0.95, 1
+            text_color: 1, 1, 1, 1
+            font_size: '18sp'
+            font_name: 'Roboto'
+            elevation: 6
+            icon: 'check-circle'
+            on_release: app.check_compatibility()
+        
+
+        
